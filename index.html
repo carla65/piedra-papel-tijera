@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+       <title>Juego de piedra, papel o tijera</title> 
+       <link rel="stylesheet" href="piedrapapeltijera.css">
+    </head>
+    <body>
+        <h1>Piedra, Papel o Tijeras</h1>
+        <img src="pucca.jpg" width="300 px">
+        <div id="opciones">
+            <button onclick="play('piedra')">Piedra</button>
+            <button onclick="play('papel')">Papel</button>
+            <button onclick="play('tijeras')">Tijeras</button>
+        </div>
+        <div id="resultado"></div>
+
+        <script>
+            //Funcion
+            function play (mieleccion){
+            const juego = ['piedra', 'papel', 'tijeras'];
+            const eleccionJS= 'papel'; 
+
+            let resultado;
+            if (mieleccion === eleccionJS) {
+                resultado= 'Empate';
+            } else if (
+                (mieleccion === 'piedra' && eleccionJS === 'tijeras') || 
+                (mieleccion === 'papel' && eleccionJS === 'piedra') ||
+                (mieleccion === 'tijeras' && eleccionJS === 'papel')
+            ){
+                resultado = 'Ganaste';
+            } else {
+                resultado = 'Perdiste';
+            }
+            document.getElementById('resultado').textContent = `Elegiste ${mieleccion}, Pucca eligió ${eleccionJS}. ${resultado}`;
+            }
+        </script>
+    </body>
+</html>
